@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  
+  <title>Dictionary web app</title>
+</head>
+<body>
+  <div class="container">
+  <header>
+    <nav>
+      <img id="book" src="./assets/images/logo.svg" alt="">
+      <div class="fontandlogo">
+      <div class="font-choice">
+        <h4 id="font">Sans Serif</h4>
+        <div id="dropdown-toggle">
+          <img src="./assets/images/icon-arrow-down.svg" alt="">
+        </div>
+        <div id="dropdown-menu">
+          <!-- Dropdown menu content goes here -->
+          <ul class="dropdown-links">
+            <li id="sans">Sans Serif</li>
+            <li id="serif">Serif</li>
+            <li id="mono">Mono</li>
+            <!-- Add more options as needed -->
+          </ul>
+        </div>
+        
+        
+      </div>
+      <div class="dark-mode">
+        <label class="switch">
+          <input id="light-toggle" type="checkbox">
+          <span class="slider round"></span>
+        </label>
+        <img src="./assets/images/icon-moon.svg" alt="">
+      </div>
+    </div>
+    </nav>
+   
+    <form id="search-form">
+      <input type="search" placeholder="Search..." class="search-field" id="search">
+      <button type="submit" class="search-button"></button>
+      <!-- <img src="./assets/images/icon-search.svg"> -->
+    </form>
+      
+    
+      
+   
+  </header>
+  <main>
+    <section id ="content">
+
+    
+    <section class="word">
+      <div class="wordandtext">
+        <h1 id="word-title"></h1>
+        <h4 id="phonetic"></h4>
+      </div>
+     <div id ="playButton">
+      
+     </div>
+    </section>
+    <!-- <section class="partOfSpeech">
+      <h3 id="speechPart">noun</h3>
+      <h4 class="meaning">Meaning</h4>
+      <ul id="definitions">
+       
+      </ul>
+      
+      
+    </section> -->
+    <!-- <div class="synonym-container">
+      <h5 class="synonyms">Synonyms</h5>
+      <p>this that pittypat skipitudoo thisthatratspa</p>
+    </div> -->
+    <!-- <section class="source">
+      <h4>source</h4>
+      <p>This is the source i'm using</p>
+    </section> -->
+    
+  </section>
+  </main>
+</div>
+<script src="app.js">
+  
+</script>
+
+</body>
+</html>
