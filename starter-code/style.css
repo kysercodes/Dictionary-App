@@ -1,25 +1,30 @@
 body {
   margin: 0;
   padding: 0;
-  /* width: 100%; */
   height: 100vh;
   box-sizing: border-box;
- /* overflow-x: hidden; */
- background-color: white;
- color: black;
+  background-color: white;
+  color: black;
   font-family: sans-serif;
   font-size: 1rem;
-
 }
 
-#dropdown-toggle:hover{
-  cursor: pointer;
-}
 
+/* clears the ‘X’ from Chrome  input */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
+/* Base styles */
+:root {
+  --main-color: #9c21f3;
+}
 a{
   text-decoration: none;
-  color: black;
 }
+ /* Base styles end */
+/* font change styles start */
 .sans-font {
   font-family: sans-serif;
  }
@@ -35,10 +40,7 @@ a{
 #sans{
   font-family: sans-serif;
 }
-#sans:hover,#serif:hover,#mono:hover{
-  color: #9c21f3;
-  cursor: pointer;
-}
+
 #serif{
   font-family: serif;
 }
@@ -46,20 +48,21 @@ a{
 #mono{
   font-family: monospace;
 }
-/* darkmode styling */
-.night-mode {
-  background-color: black;
-  color: white;
-}
-/* clears the ‘X’ from Chrome */
-input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration { display: none; }
-header {
-  /* gap: 7vh;
-  padding: 5vh; */
-  /* border: 2px solid red; */
+
+/* font change styles end */
+
+/* modules */
+
+.container{
+  margin: auto;
+  padding: 4vh;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+ }
+
+ header {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -67,14 +70,11 @@ header {
   align-content: center;
   justify-content:flex-start;
   width: 100%;
-  /* gap: 2vh; */
-  /* height:20vh; */
-}
-
+ }
+/* nav styles start */
 nav{
-  /* border: 3px solid purple; */
   position: relative;
- width: 80%;
+  width: 80%;
   gap: 12vw;
   justify-content: space-around;
   display: flex;
@@ -92,16 +92,153 @@ nav{
   justify-content: center;
   align-items: center;
 }
+
 .font-choice {
- display: flex;
- gap: 1vw;
-}
-.dark-mode {
+  display: flex;
+  gap: 1vw;
+ }
+
+ .dark-mode {
   display: flex;
   gap: 1vw;
 }
-/* dark mode button */
-/* The switch - the box around the slider */
+/* dropdoen menu start */
+#dropdown-toggle {
+  align-self: center;
+}
+#dropdown-menu {
+  display: none;
+}
+
+.dropdown-links {
+ margin-right: 10%;
+  
+}
+
+.dropdown-links li {
+ list-style: none;
+ line-height: 2em;
+}
+
+/* dropdoen menu end */
+
+/* nav styles end */
+
+ main  {
+  flex-direction: column;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.word {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 10vw;
+  justify-content: space-around;
+ }
+
+ .partOfSpeech{
+  padding-left: 15%;
+  width: 80%;
+}
+
+#phonetic{
+  color: var(--main-color);
+}
+#word-title{
+  font-size: 4em;
+  font-weight: bold;
+}
+
+ul {
+  list-style: none; /* Remove default bullets */
+}
+li{
+  line-height: 2rem;
+}
+ul li::before {
+  content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: var(--main-color); /* Change the color */
+  font-weight: bold; /* If you want it to be bold */
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 1em; /* Also needed for space (tweak if needed) */
+  margin-left: -1em; /* Also needed for space (tweak if needed) */
+}
+
+
+
+.synonym-container {
+  gap: 1vw;
+   display: inline-flex; 
+}
+.synonym-container p {
+  font-size: 0.7rem;
+  align-self: center;
+  word-wrap: break-word;
+}
+
+.synonym-container h4{
+  align-self:center ;
+}
+
+.source{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  padding-left: 15%;
+  width: 80%;
+}
+#sourceLink{
+  color: var(--main-color);
+  font-size: .6em;
+}
+
+/* modules end */
+
+
+
+/* components start */
+
+/* search input start */
+form{
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  text-indent: 1rem;
+  position: relative;
+  text-align: left;
+  background-color: #ececec;
+  flex-basis: 80%;
+  height: 2.5rem;
+  align-self: center;
+  border-radius: 15px;
+  border: none;
+  outline: none;
+  padding-right: 2.5rem; /* Add padding to accommodate the search image */
+}
+
+.search-button {
+  position: absolute;
+  top: 45%;
+  left: 78%;
+  right: 0.5rem; /* Adjust the position based on needs */
+  transform: translateY(50%); /* Center the search image vertically */
+  background: transparent url("./assets/images/icon-search.svg") no-repeat center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+/* search input end */
+
+/* light/dark mode toggle start */
 .switch {
   align-self: center;
   position: relative;
@@ -135,26 +272,13 @@ nav{
   content: "";
   height: 10px;
   width: 10px;
- /* left: 2px; */
   bottom: 2px;
   background-color: white;
   -webkit-transition: .4s;
   transition: .4s;
 }
 
-input:checked + .slider {
-  background-color: #9c21f3;
-}
 
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(18px);
-  -ms-transform: translateX(18px);
-  transform: translateX(18px);
-}
 
 /* Rounded sliders */
 .slider.round {
@@ -164,154 +288,61 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
- /* end dark mode button */
-form{
-  /* flex-basis: 80%; */
-  height: 8vh;
-  /* border: 1px solid red; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.input-dark {
-  
-  background-color: #383838;
-  color: white;
-}
+/* light/dark mode toggle end */
 
-
-input {
-  text-indent: 1rem;
-  position: relative;
-  text-align: left;
-  background-color: #ececec;
-  flex-basis: 80%;
-  height: 2.5rem;
-  align-self: center;
-  border-radius: 15px;
-  border: none;
-  outline: none;
-  padding-right: 2.5rem; /* Add padding to accommodate the search image */
-}
-
-.search-button {
-  position: absolute;
-  top: 45%;
-  left: 78%;
-  right: 0.5rem; /* Adjust the position based on your needs */
-  transform: translateY(50%); /* Center the search image vertically */
-  background: transparent url("./assets/images/icon-search.svg") no-repeat center;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  width: 2.5rem;
-  height: 2.5rem;
-}
-
-
-
-
-.container{
-  margin: auto;
-  padding: 4vh;
-  max-width: 1000px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /* border: 1px solid red; */
-  /* height: 100vh; */
-
-}
-
-
-
-main  {
-  /* width: 100%; */
-  /* border: 1px solid red; */
-  flex-direction: column;
-  display: flex;
-  justify-content: flex-start;
-  /* margin-left: 15%; */
-}
-
-.word {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  gap: 10vw;
-  justify-content: space-around;
- 
-  
-}
-#phonetic{
-  color: #9c21f3;
-}
-#word-title{
-  font-size: 4em;
-  font-weight: bold;
-}
-.partOfSpeech{
-  padding-left: 12%;
-  /* border: 1px solid green; */
-  width: 80%;
-}
-
+/* audio button that plays word sound */
 #playButton{
   align-self: center;
 }
+
+/* components end */
+
+
+
+
+/* state styling start */
+
+
+
+
 
 #playButton img:hover {
   cursor: pointer;
 }
 
-ul {
-  list-style: none; /* Remove default bullets */
-}
-li{
-  line-height: 2rem;
-}
-ul li::before {
-  content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
-  color: #9c21f3; /* Change the color */
-  font-weight: bold; /* If you want it to be bold */
-  display: inline-block; /* Needed to add space between the bullet and the text */
-  width: 1em; /* Also needed for space (tweak if needed) */
-  margin-left: -1em; /* Also needed for space (tweak if needed) */
+
+/* Dark state start */
+#light-toggle:checked + .slider {
+  background-color: var(--main-color);
 }
 
-.synonym-container {
-  gap: 1vw;
-   display: inline-flex; 
-
-  /* max-width: 80%; */
-}
-.synonym-container p {
-  font-size: 0.7rem;
-  align-self: center;
-  word-wrap: break-word;
-  /* max-width: 90%; */
+#light-toggle:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
 }
 
-.synonym-container h4{
-  /* padding-right: 20%; */
-  align-self:center ;
+#light-toggle:checked + .slider:before {
+  -webkit-transform: translateX(18px);
+  -ms-transform: translateX(18px);
+  transform: translateX(18px);
 }
+/* Dark state end*/
 
 
-#dropdown-toggle {
-  align-self: center;
+
+/* dropdown menu start */
+#sans:hover,#serif:hover,#mono:hover{
+  color: var(--main-color);
+  cursor: pointer;
 }
-#dropdown-menu {
-  display: none;
+#dropdown-toggle:hover{
+  cursor: pointer;
 }
 #dropdown-menu.active {
-  /* display: block; */
   position: absolute;
   top: 50px;
-/* left: 2px; */
   z-index: 1;
- background-color: white;
+  background-color: white;
   border-radius: 16px;
   display: flex;
   justify-self: flex-start;
@@ -326,33 +357,30 @@ ul li::before {
   background-color: #000000; /* Replace #333 with your desired dark background color */
   color: #fff; /* Replace #fff with your desired font color for dark mode */
 }
-.dropdown-links {
- margin-right: 10%;
-  
+
+/* dropdown menu end */
+
+
+
+/* darkmode styling */
+.input-dark {
+  background-color: #383838;
+  color: white;
 }
 
-.dropdown-links li {
- list-style: none;
- line-height: 2em;
+.night-mode {
+  background-color: black;
+  color: white;
 }
 
-.source{
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1rem;
-  padding-left: 12%;
-  width: 80%;
-}
+/* state styling end*/
 
-.source a {
-  font-size: .6em;
-}
-/* .synonym-container p {
-  font-size: .7rem;
-  align-self: center;
-  word-wrap: break-word;
-} */
+
+
+
+
+/* mobile styles */
+
 @media all and (max-width: 550px) {
   .search-button {
     top: 45%;
@@ -382,5 +410,8 @@ ul li::before {
   #word-title{
     font-size: 2.5em;
   
+  }
+  .partOfSpeech,.source{
+    padding-left: 12%;
   }
  }

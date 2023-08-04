@@ -24,15 +24,18 @@ let audioPlay
   const inputElement = document.getElementById('search')
   const checkbox = document.getElementById('light-toggle');
   const dropdown = document.getElementById('dropdown-menu')
+  const wikiSource = document.getElementById('sourceLink')
 
   if (checkbox.checked) {
     element.classList.add('night-mode'); // Apply dark mode
     inputElement.classList.add('input-dark');
     dropdown.classList.add('night-mode');
+    wikiSource.classList.add('night-mode-text');
   } else {
     element.classList.remove('night-mode'); // Remove dark mode
     inputElement.classList.remove('input-dark');
     dropdown.classList.remove('night-mode');
+    wikiSource.classList.remove('night-mode-text');
   }
   }
 
@@ -257,6 +260,7 @@ async function fetchData(apiUrl) {
     sourceSection.appendChild(sourceHeader);  // append the object, not the string
     
     const sourceLink = document.createElement("a");
+    sourceLink.id = "sourceLink"
     sourceLink.href = data[0].sourceUrls.join(" ")
     sourceLink.textContent = data[0].sourceUrls.join(" ");  // I added ", " here to separate URLs
     sourceSection.appendChild(sourceLink);  // append the object, not the string
@@ -267,8 +271,3 @@ async function fetchData(apiUrl) {
     console.error('Error fetching data:', error);
   }
 }
-  
-
-// Call the fetchData function to make the API request
-
-console.log(data[0].sourceUrls.join(""));
